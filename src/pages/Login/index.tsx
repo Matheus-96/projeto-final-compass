@@ -4,6 +4,7 @@ import ImageWrapper from './ImageWrapper'
 import Header from './LoginWrapper/Header'
 import LoginForm from './LoginWrapper/LoginForm'
 
+
 const Container = styled.main`
   min-height: 100vh;
   display: flex;
@@ -16,6 +17,10 @@ display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 align-items: center;
+
+@media screen and (max-width: 1440px){
+		width: 65%;
+}
 `
 export default function Login(){
     return(

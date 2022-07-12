@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import {ReactComponent as WeatherIcon} from 'assets/weather-cloudy.svg'
 import { useEffect } from 'react'
-import { useLayoutEffect } from 'react'
 import { useState } from 'react'
 const WeatherContainer = styled.div`
 width: 15%;

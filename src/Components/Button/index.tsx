@@ -6,8 +6,13 @@ box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
 border-radius: 50px;
 padding: 1.25rem;
 margin-top: 3rem;
-width: 90%;
+width: 100%;
 border:none;
+font-style: normal;
+font-weight: 700;
+font-size: 1.25rem;
+line-height: 1.5rem;
+color: #FFFFFF;
 
 
 `
