@@ -21,9 +21,11 @@ module.exports = {
         '@typescript-eslint'
     ],
     'rules': {
+        'react/react-in-jsx-scope': 'off',
+        'no-undef': 'off',
         'indent': [
             'error',
-            '4'
+            4
         ],
         'linebreak-style': [
             'error',
@@ -32,10 +34,6 @@ module.exports = {
         'quotes': [
             'error',
             'single'
-        ],
-        'semi': [
-            'error',
-            'always'
         ]
     }
 };
