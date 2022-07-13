@@ -42,22 +42,48 @@ justify-content:center;
     font-size: 48px;
   }
 `
-// https://apiprevmet3.inmet.gov.br/previsao/4122305 RIO NEGRO
+// https://api.hgbrasil.com/weather?format=json-cors&woeid=456473&key=b4613b35 RIO NEGRO
 
 
 export default function Weather(){
     const [weather, setWeather] = useState<Weather>()
     
-    useEffect(()=>{
-        fetch('https://api.hgbrasil.com/weather?format=json-cors&woeid=456473&key=b4613b35', {
+    async function GrantedGeolocation(position: GeolocationPosition){
+        // eslint-disable-next-line quotes
+        const request = await fetch(`https://api.hgbrasil.com/weather?format=json-cors&lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=b4613b35`, {
             mode: 'cors',
             headers: {'Content-Type': 'Application/Json'}
+        })
+        const json = await request.json()
+        setWeather(json)
+    }
+    async function DeniedGeolocation() {
+        const request = await fetch('http://ip-api.com/json', {
+            mode: 'cors',
+            headers: { 'Content-Type': 'Application/Json' }
+        })
+        let ip = await request.json()
+        if (ip.query) {
+            ip = ip.query
+            const request = await fetch(`https://api.hgbrasil.com/weather?format=json-cors&user_ip=${ip}&key=b4613b35`, {
+                mode: 'cors',
+                headers: { 'Content-Type': 'Application/Json' }
+            })
+            const json = await request.json()
+            setWeather(json)
         }
-        
-        )
-            .then(response => response.json()
-                .then(json=> setWeather(json)))
+    }
+
+    useEffect(()=>{
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                await GrantedGeolocation(position)
+            },async ()=> {
+                await DeniedGeolocation()
+            })
+        }
     },[])
+
     return(
         <WeatherContainer>
             <div className="align-right">
@@ -112,3 +138,4 @@ interface Weather {
   execution_time: number;
   from_cache: boolean;
 }
+
