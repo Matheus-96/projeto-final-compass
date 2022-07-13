@@ -6,6 +6,9 @@ const WeatherContainer = styled.div`
 width: 15%;
 display: flex;
 flex-direction:column;
+.align-right {
+  align-self:end;
+}
 `
 const LocationContainer = styled.div`
 display: flex;
@@ -57,16 +60,18 @@ export default function Weather(){
     },[])
     return(
         <WeatherContainer>
-            <LocationContainer>
-                <h2>{weather?.results.city.split(',')[0]} - {weather?.results.city.split(',')[1]}</h2>
-            </LocationContainer>
-            <div>
-                <TemperatureContainer>
-                    <div className="icon">
-                        <WeatherIcon />
-                    </div>
-                    <h3>{JSON.stringify(weather?.results.temp)}°</h3>
-                </TemperatureContainer>
+            <div className="align-right">
+                <LocationContainer>
+                    <h2>{weather?.results.city.split(',')[0]} - {weather?.results.city.split(',')[1]}</h2>
+                </LocationContainer>
+                <div>
+                    <TemperatureContainer>
+                        <div className="icon">
+                            <WeatherIcon />
+                        </div>
+                        <h3>{JSON.stringify(weather?.results.temp)}°</h3>
+                    </TemperatureContainer>
+                </div>
             </div>
         </WeatherContainer>
     )

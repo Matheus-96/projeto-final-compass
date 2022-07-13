@@ -29,7 +29,7 @@ export default function LoginForm(){
     return(
         <Form>
             <Subtitle>
-                Login {counter}
+                Login
             </Subtitle>
             <Input state={nome} setState={setNome} error={counter>=2} />
             <Input state={password} setState={setPassword} error={counter>=2} type='password' />

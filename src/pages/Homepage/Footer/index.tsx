@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Refresh from './Refresh'
@@ -68,8 +67,7 @@ const FooterButtonLight = styled(FooterButton)`
 export default function Footer(){
     const navigate = useNavigate()
 
-    const [timer, setTimer] = useState(60)
-    // if(timer <= 0) navigate('/')
+
     return(
         <FooterContainer>
             <StatusContainer>
@@ -80,7 +78,7 @@ export default function Footer(){
                     </Paragraph>
                     <Divider /> 
                 </div>
-                <Refresh timer={timer} setTimer={setTimer} />
+                <Refresh />
             </StatusContainer>
             <ButtonContainer>
                 <FooterButtonLight onClick={()=>{window.location.href = 'https://www.google.com'}}>

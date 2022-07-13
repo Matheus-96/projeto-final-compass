@@ -13,7 +13,7 @@ const TimeContainer = styled.div`
 font-style: normal;
 font-weight: 700;
 font-size: 9rem;
-line-height: 11rem;
+line-height: 8rem;
 text-align: center;
 
 /* Secundária */

@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const RefreshContainer = styled.div`
@@ -41,7 +43,10 @@ const Timer = styled.div`
   }
 `
 
-export default function Refresh({timer, setTimer}: Props){
+export default function Refresh(){
+    const [timer, setTimer] = useState(60)
+    const navigate = useNavigate()
+    if(timer <= 0) navigate('/')
     setTimeout(()=>{setTimer(timer - 1)}, 1000)
 
     return(
@@ -62,9 +67,4 @@ export default function Refresh({timer, setTimer}: Props){
 
         </RefreshContainer>
     )
-}
-
-interface Props {
-	timer: number,
-	setTimer: React.Dispatch<React.SetStateAction<number>>
 }

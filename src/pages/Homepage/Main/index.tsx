@@ -38,11 +38,15 @@ const MainContainer = styled.div`
     font-size: 24px;
     line-height: 30px;
     text-align: right;
-
-    /* Secundária */
-
     color: #222222;
   }
+	span {
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1.5rem;
+		line-height: 1.875rem;
+		color: #222222;
+	}
 `
 export default function Main(){
     return(
@@ -53,7 +57,8 @@ export default function Main(){
             <span>transformar o mundo</span>
             <h1>building digital experiences</h1>
             <span>construindo experiências digitais</span>
-            <h1>{'that enable our client`s growth'}</h1>
+            {/*eslint-disable-next-line quotes*/}
+            <h1>{`that enable our client's growth`}</h1>
             <span>que permitam o crescimento dos nossos clientes</span>
         </MainContainer>
     )

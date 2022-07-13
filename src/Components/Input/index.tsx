@@ -32,6 +32,7 @@ const InputField = styled.input`
 	background-color: none;
 	color: #E0E0E0;
 	line-height:20px;
+	letter-spacing:1px;
 	::placeholder{
 		color: #E0E0E0;
 	}
@@ -56,11 +57,11 @@ export default function Input({type='text', error, state='', setState}: Props){
             {type == 'password' ?
                 <IconPassword className={classNames({
                     ['icon']: true,
-                    ['outside']: state.length > 0
+                    ['outside']: state.length == 0
                 })}/> :
                 <IconUser className={classNames({
                     ['icon']: true,
-                    ['outside']: state.length > 0
+                    ['outside']: state.length == 0
                 })}/>}
         </InputGroup>
     )

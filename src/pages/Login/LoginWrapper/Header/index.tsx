@@ -11,7 +11,7 @@ export default function Header(){
     return(
         <HeaderContainer>
             <Title>
-							Ola,
+							Olá,
             </Title>
             <Paragraph>
 							Para continuar navegando de forma<br />
