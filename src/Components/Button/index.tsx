@@ -13,5 +13,8 @@ font-weight: 700;
 font-size: 1.25rem;
 line-height: 1.5rem;
 color: #FFFFFF;
+&:active{
+	box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.45);
 
+}
 `

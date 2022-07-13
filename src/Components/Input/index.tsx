@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-import {ReactComponent as IconUser} from 'assets/icon-user.svg'
-import {ReactComponent as IconPassword} from 'assets/icon-password.svg'
-import classNames from 'classnames';
-
-const InputGroup = styled.div`
+export const InputGroup = styled.div`
 // display:flex;
 	margin-bottom: 2rem;
 	align-items: center;
@@ -23,7 +19,7 @@ const InputGroup = styled.div`
 }
 `
 
-const InputField = styled.input`
+export const InputField = styled.input`
 	background: #26292C;
 	border: 1px solid #FFFFFF;
 	border-radius: 50px;
@@ -41,35 +37,3 @@ const InputField = styled.input`
 		border-radius: 50px;
 	}
 `
-
-export default function Input({type='text', error, state='', setState}: Props){
-    return(
-        <InputGroup>
-            <InputField
-                placeholder={type == 'password'? 'Senha': 'Usuário'}
-                type={type}
-                className={classNames({
-                    ['error']: error
-                })}
-                value={state}
-                onChange={(event)=>setState(event.target.value)}
-            ></InputField>
-            {type == 'password' ?
-                <IconPassword className={classNames({
-                    ['icon']: true,
-                    ['outside']: state.length == 0
-                })}/> :
-                <IconUser className={classNames({
-                    ['icon']: true,
-                    ['outside']: state.length == 0
-                })}/>}
-        </InputGroup>
-    )
-}
-
-interface Props {
-	type?:string,
-	error?: boolean,
-  state: string,
-  setState: React.Dispatch<React.SetStateAction<string>>
-}

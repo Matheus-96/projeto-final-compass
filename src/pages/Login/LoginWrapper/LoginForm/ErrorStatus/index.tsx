@@ -9,9 +9,11 @@ text-align: center;
 width:90%;
 
 color: #E9B425;
-display:none;
+opacity:0;
 &.error {
-	display:block;
+	transition: opacity 0.5s;
+	opacity:1;
+
 }
 `
 
