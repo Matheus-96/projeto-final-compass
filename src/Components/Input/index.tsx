@@ -34,7 +34,8 @@ export const InputField = styled.input`
 	background: #26292C;
 	border: 1px solid #FFFFFF;
 	border-radius: 50px;
-	padding: 1.25rem;
+	padding: 1.25rem 5rem 1.25rem 1.25rem;
+
 	width: 100%;
 	background-color: none;
 	color: #E0E0E0;
@@ -47,6 +48,9 @@ export const InputField = styled.input`
 		border: 1px solid #E9B425;
 		border-radius: 50px;
 	}
+	@media screen and (max-width: 768px){
+	padding: 1.25rem 5rem 1.25rem 1.25rem;
 
+	}
 
 `
