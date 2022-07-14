@@ -16,16 +16,27 @@ width: 100%;
 
 export default function LoginForm(){
     const {nome, setNome, password, setPassword} = useContext(UsuarioContext)
+    const [error, setError] = useState(false)
 
-
-    const [counter, setCounter] = useState(0)
     const navigate = useNavigate()
 
-    function increaseCounter(){
-        setCounter(counter+1)
-        if(counter >= 3){
+    function validateForm(){
+        if(validateEmail() && validatePassword()){
+            setError(false)
             navigate('home')
+            return
         }
+        setError(true)
+        
+    }
+            
+
+    function validateEmail(){
+        return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(nome)
+    }
+
+    function validatePassword(){
+        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
     }
 
     return(
@@ -38,7 +49,7 @@ export default function LoginForm(){
                     placeholder='Usuário'
                     type='text'
                     className={classNames({
-                        ['error']: counter >=2
+                        ['error']: error
                     })}
                     value={nome}
                     onChange={(event)=>setNome(event.target.value)}
@@ -53,7 +64,7 @@ export default function LoginForm(){
                     placeholder='Senha'
                     type='password'
                     className={classNames({
-                        ['error']: counter >=2
+                        ['error']: error
                     })}
                     value={password}
                     onChange={(event)=>setPassword(event.target.value)}
@@ -64,12 +75,12 @@ export default function LoginForm(){
                 })}/>
             </InputGroup>
             <ErrorStatus className={classNames({
-                ['error']: counter>=2
+                ['error']: error
             })}>
                 Ops, usuário ou senha inválidos.<br />
                 Tente novamente!
             </ErrorStatus>
-            <Button type='button' onClick={()=> increaseCounter()}>
+            <Button type='button' onClick={()=> validateForm()}>
                 Continuar
             </Button>
         </Form>
