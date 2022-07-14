@@ -11,6 +11,7 @@ import {ReactComponent as IconPassword} from 'assets/icon-password.svg'
 import {ReactComponent as IconUser} from 'assets/icon-user.svg'
 const Form = styled.form`
 width: 100%;
+padding:5rem 0 1rem;
 `
 
 
@@ -40,7 +41,7 @@ export default function LoginForm(){
     }
 
     return(
-        <Form>
+        <Form onSubmit={event => {event.preventDefault()}}>
             <Subtitle>
                 Login
             </Subtitle>
@@ -80,7 +81,7 @@ export default function LoginForm(){
                 Ops, usuário ou senha inválidos.<br />
                 Tente novamente!
             </ErrorStatus>
-            <Button type='button' onClick={()=> validateForm()}>
+            <Button type='submit' onClick={()=> validateForm()}>
                 Continuar
             </Button>
         </Form>

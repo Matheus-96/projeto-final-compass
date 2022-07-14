@@ -5,17 +5,28 @@ export const InputGroup = styled.div`
 	margin-bottom: 2rem;
 	align-items: center;
   position:relative;
+
   .icon {
-  transition: all 1s;
-  position:absolute;
-  right:5%;
-  top:50%;
-  transform: translateY(-50%);
-	margin-left: 1rem;
+		transition: all 1s;
+		position:absolute;
+		right:20px;
+
+		top:50%;
+		transform: translateY(-50%);
+		margin-left: 1rem;
   &.outside {
     transform: translateY(-50%)translateX(280%);
 
   }
+	
+}
+@media screen and (max-width: 768px){
+	width: 90%;
+
+	.icon {
+		right:20px;
+
+	}
 }
 `
 
@@ -36,4 +47,6 @@ export const InputField = styled.input`
 		border: 1px solid #E9B425;
 		border-radius: 50px;
 	}
+
+
 `

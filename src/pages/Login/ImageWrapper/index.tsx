@@ -10,6 +10,10 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items:start;
   padding-top:2rem;
+
+	@media screen and (max-width: 768px){
+		display:none;
+	}
 `
 
 export default function ImageWrapper(){
