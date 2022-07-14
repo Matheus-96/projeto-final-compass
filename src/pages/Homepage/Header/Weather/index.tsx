@@ -58,20 +58,12 @@ export default function Weather(){
         setWeather(json)
     }
     async function DeniedGeolocation() {
-        const request = await fetch('http://ip-api.com/json', {
+        const request = await fetch('https://api.hgbrasil.com/weather?format=json-cors&key=b4613b35', {
             mode: 'cors',
             headers: { 'Content-Type': 'Application/Json' }
         })
-        let ip = await request.json()
-        if (ip.query) {
-            ip = ip.query
-            const request = await fetch(`https://api.hgbrasil.com/weather?format=json-cors&user_ip=${ip}&key=b4613b35`, {
-                mode: 'cors',
-                headers: { 'Content-Type': 'Application/Json' }
-            })
-            const json = await request.json()
-            setWeather(json)
-        }
+        const json = await request.json()
+        setWeather(json)
     }
 
     useEffect(()=>{
@@ -88,14 +80,14 @@ export default function Weather(){
         <WeatherContainer>
             <div className="align-right">
                 <LocationContainer>
-                    <h2>{weather?.results.city.split(',')[0]} - {weather?.results.city.split(',')[1]}</h2>
+                    <h2>{weather ? `${weather.results.city.split(',')[0]} - ${weather?.results.city.split(',')[1]}` : 'Buscando...'}</h2>
                 </LocationContainer>
                 <div>
                     <TemperatureContainer>
                         <div className="icon">
                             <WeatherIcon />
                         </div>
-                        <h3>{JSON.stringify(weather?.results.temp)}°</h3>
+                        <h3>{JSON.stringify(weather?.results.temp) || 0}°</h3>
                     </TemperatureContainer>
                 </div>
             </div>
