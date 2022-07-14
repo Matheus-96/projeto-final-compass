@@ -7,6 +7,7 @@ const MainContainer = styled.div`
   align-items:end;
   width:100%;
   flex-grow:1;
+	margin: 1rem 0;
   padding-right:8.375rem;
   h1 {
     font-style: normal;
