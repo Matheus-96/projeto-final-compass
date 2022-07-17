@@ -14,12 +14,12 @@ export const InputGroup = styled.div`
 		top:50%;
 		transform: translateY(-50%);
 		margin-left: 1rem;
-  &.outside {
-    transform: translateY(-50%)translateX(280%);
+		&.outside {
+			transform: translateY(-50%)translateX(280%);
 
-  }
-	
-}
+		}
+	}
+
 @media screen and (max-width: 768px){
 	width: 90%;
 
@@ -27,6 +27,11 @@ export const InputGroup = styled.div`
 		right:20px;
 
 	}
+}
+`
+export const InputGroupCadastro = styled(InputGroup)`
+&:not(:nth-child(1)){
+	margin-top:1.5rem;
 }
 `
 

@@ -14,7 +14,6 @@ opacity:0;
 &.error {
 	transition: opacity 0.5s;
 	opacity:1;
-
 }
 `
 
