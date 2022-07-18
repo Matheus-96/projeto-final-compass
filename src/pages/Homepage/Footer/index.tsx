@@ -81,10 +81,12 @@ export default function Footer(){
                 <Refresh />
             </StatusContainer>
             <ButtonContainer>
-                <FooterButtonLight onClick={()=>{window.location.href = 'https://www.google.com'}}>
-                  Continuar<br />
-                  Navegando
-                </FooterButtonLight>
+                <a href='https://www.google.com' target={'blank'}>
+                    <FooterButtonLight>
+                      Continuar<br />
+                      Navegando
+                    </FooterButtonLight>
+                </a>
                 <FooterButton onClick={()=>{navigate('/')}}>
                   Logout
                 </FooterButton>

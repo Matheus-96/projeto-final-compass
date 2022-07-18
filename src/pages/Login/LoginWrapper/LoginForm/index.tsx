@@ -18,7 +18,7 @@ padding:5rem 0 1rem;
   padding:0 1rem;
       width:100%;
   a{
-		color:orange;
+    color:orange;
     cursor:pointer;
     &:hover {
       text-decoration:underline;
@@ -55,9 +55,15 @@ export default function LoginForm(){
                     method: 'POST'
                     
                 })
-            const token = await request.json()
-            localStorage.setItem('token', token.token)
-            navigate('/home')
+            
+            if(request.status === 200){ 
+                setError(true)
+                const token = await request.json()
+                localStorage.setItem('token', token.token)
+                navigate('/home')
+            } else {
+                setError(true)
+            }
         } catch(error){
             console.log(error);  
         }

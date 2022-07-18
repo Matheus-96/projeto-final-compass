@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable quotes */
 const { InvalidArgumentError } = require('./erros');
 
 
@@ -26,7 +28,7 @@ module.exports = {
         regex = new RegExp('[A-Z]', 'g')
         if (!regex.test(valor))
             throw new InvalidArgumentError(
-                `O campo ${nome} precisa precisa conter ao menos 1 caractere maiúsculo!`
+                `O campo ${nome} precisa conter ao menos 1 caractere maiúsculo!`
             );
     },
 
@@ -34,7 +36,7 @@ module.exports = {
         regex = new RegExp('[a-z]', 'g')
         if (!regex.test(valor))
             throw new InvalidArgumentError(
-                `O campo ${nome} precisa precisa conter ao menos 1 caractere minusculo!`
+                `O campo ${nome} precisa conter ao menos 1 caractere minusculo!`
             );
     },
 
@@ -42,7 +44,15 @@ module.exports = {
         regex = new RegExp('[0-9]', 'g')
         if (!regex.test(valor))
             throw new InvalidArgumentError(
-                `O campo ${nome} precisa precisa conter ao menos 1 caractere numerico!`
+                `O campo ${nome} precisa conter ao menos 1 caractere numerico!`
+            );
+    },
+
+    campoValidaEmail: (valor, nome) => {
+        if (!/(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            .test(valor))
+            throw new InvalidArgumentError(
+                `O campo ${nome} precisa estar em formato de email@example.com!`
             );
     }
 };

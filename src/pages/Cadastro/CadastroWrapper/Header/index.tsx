@@ -5,7 +5,6 @@ import Logo from 'assets/logo_compasso.png'
 
 const HeaderContainer = styled.header`
 width: 100%;
-margin:2rem 0 1rem;
 `
 
 const LogoContainer = styled.div`
@@ -13,7 +12,7 @@ const LogoContainer = styled.div`
 @media screen and (max-width:768px){
 	display:flex;
 	justify-content:center;
-	margin-bottom:4rem;
+	margin: 0 0 4rem;
 	img {
 		min-width:240px;
 

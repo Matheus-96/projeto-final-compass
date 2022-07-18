@@ -11,11 +11,18 @@ padding: 2rem 0 1rem;
 
 color: #E9B425;
 opacity:0;
+transition: opacity 0.5s;
 &.error {
-	transition: opacity 0.5s;
 	opacity:1;
 
 }
+
+
+@media screen and (max-width:768px){
+	display:none;
+	&.error {
+		display:block;
+	}
 `
 
 interface Props {

@@ -50,7 +50,7 @@ export default function Weather(){
     
     async function GrantedGeolocation(position: GeolocationPosition){
         // eslint-disable-next-line quotes
-        const request = await fetch(`https://api.hgbrasil.com/weather?format=json-cors&lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=b4613b35`, {
+        const request = await fetch(`https://api.hgbrasil.com/weather?format=json-cors&lat=${position.coords.latitude}&lon=${position.coords.longitude}&key=89f375e8`, {
             mode: 'cors',
             headers: {'Content-Type': 'Application/Json'}
         })
@@ -58,7 +58,7 @@ export default function Weather(){
         setWeather(json)
     }
     async function DeniedGeolocation() {
-        const request = await fetch('https://api.hgbrasil.com/weather?format=json-cors&key=b4613b35', {
+        const request = await fetch('https://api.hgbrasil.com/weather?format=json-cors&key=89f375e8', {
             mode: 'cors',
             headers: { 'Content-Type': 'Application/Json' }
         })
@@ -67,6 +67,7 @@ export default function Weather(){
     }
 
     useEffect(()=>{
+      
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(async (position) => {
                 await GrantedGeolocation(position)

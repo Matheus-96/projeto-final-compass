@@ -114,7 +114,7 @@ export default function LoginForm(){
     }
 
     function validateEmail(){
-        return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/.test(nome)
+        return /(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(nome)
     }
 
     function validatePassword(){
@@ -128,7 +128,7 @@ export default function LoginForm(){
             </Subtitle>
             <InputGroupCadastro>
                 <InputField
-                    placeholder='Usuário'
+                    placeholder='teste@exemplo.com'
                     type='text'
                     className={classNames({
                         ['error']: error

@@ -47,7 +47,7 @@ export const InputField = styled.input`
 	line-height:20px;
 	letter-spacing:1px;
 	::placeholder{
-		color: #E0E0E0;
+		color: #707070;
 	}
 	&.error{
 		border: 1px solid #E9B425;

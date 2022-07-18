@@ -33,6 +33,7 @@ class Usuario {
 
     valida() {
         validacoes.campoStringNaoNulo(this.email, 'email');
+        validacoes.campoValidaEmail(this.email, 'email');
     }
 
     async deleta() {
