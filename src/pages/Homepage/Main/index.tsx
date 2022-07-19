@@ -7,8 +7,20 @@ const MainContainer = styled.div`
   align-items:end;
   width:100%;
   flex-grow:1;
-	margin: 1rem 0;
+	padding: 1rem 0;
   padding-right:8.375rem;
+	.mobile-only{
+		display: none;
+	}
+
+	@media screen and (max-width:768px){
+		padding-right:2rem;
+		padding-bottom:6rem;
+
+		.mobile-only {
+			display: block;
+		}
+	}
   h1 {
     font-style: normal;
     font-weight: 700;
@@ -19,6 +31,10 @@ const MainContainer = styled.div`
     /* Primária */
 
     color: #C12D18;
+
+		@media screen and (max-width:768px){
+			font-size: 3rem;
+		}
   }
 
   h2 {
@@ -31,6 +47,10 @@ const MainContainer = styled.div`
     /* Primária */
 
     color: #C12D18;
+		
+		@media screen and (max-width:768px){
+			font-size: 3rem;
+		}
   }
 
   p {
@@ -47,6 +67,8 @@ const MainContainer = styled.div`
 		font-size: 1.5rem;
 		line-height: 1.875rem;
 		color: #222222;
+		text-align:end;
+
 	}
 `
 export default function Main(){
@@ -60,7 +82,7 @@ export default function Main(){
             <span>construindo experiências digitais</span>
             {/*eslint-disable-next-line quotes*/}
             <h1>{`that enable our client's growth`}</h1>
-            <span>que permitam o crescimento dos nossos clientes</span>
+            <span>que permitam o crescimento dos nossos<br className='mobile-only' />clientes</span>
         </MainContainer>
     )
 }

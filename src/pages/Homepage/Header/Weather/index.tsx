@@ -39,7 +39,7 @@ justify-content:center;
 
   h3{
     font-weight: 700;
-    font-size: 48px;
+    font-size: 3rem;
   }
 `
 // https://api.hgbrasil.com/weather?format=json-cors&woeid=456473&key=b4613b35 RIO NEGRO

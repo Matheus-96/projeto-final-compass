@@ -5,6 +5,10 @@ import Refresh from './Refresh'
 const FooterContainer = styled.div`
 display: flex;
 background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
+padding-bottom: 2rem;
+@media screen and (max-width:768px){
+	flex-direction:column;
+}
 `
 
 const Paragraph = styled.p`
@@ -18,6 +22,19 @@ const Paragraph = styled.p`
 
   color: #FFFFFF;
 
+	.desktop-only {
+		display: block;
+	}
+
+	@media screen and (max-width: 768px) {
+    text-align:center;
+		padding: 2rem 0;
+		.desktop-only {
+			display: none;
+		}
+	}
+
+
 `
 
 const Divider = styled.div`
@@ -25,6 +42,9 @@ const Divider = styled.div`
   width: 2px;
   height:80px;
   background-color: #FFFFFF;
+	@media screen and (max-width: 768px) {
+    display:none;
+	}
 `
 const StatusContainer = styled.div`
     padding: 1rem;
@@ -32,16 +52,27 @@ const StatusContainer = styled.div`
     display:flex;
     justify-content:space-evenly;
     align-items:center;
-    
+  
+		@media screen and (max-width:768px){
+			flex-direction:column;
+		}
+		
   .paragraphContainer {
+		order:1;
     display: flex;
     align-items:center;
+
   }
+
 `
 
 const ButtonContainer = styled.div`
-  align-self:stretch;
   display:flex;
+	@media screen and (max-width:768px){
+		justify-content:space-evenly;
+    align-items:center;
+
+	}
 `
 
 const FooterButton = styled.button`
@@ -54,6 +85,7 @@ const FooterButton = styled.button`
     color: #FFFFFF;
     width:130px;
     border:none;
+		height:100%;
 `
 
 const FooterButtonLight = styled(FooterButton)`
@@ -73,7 +105,7 @@ export default function Footer(){
             <StatusContainer>
                 <div className='paragraphContainer'>
                     <Paragraph>
-                      Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a<br />
+                      Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a<br className='desktop-only' />
                       aberta em segundo plano e abra uma nova janela para continuar a navegar.
                     </Paragraph>
                     <Divider /> 
@@ -87,6 +119,7 @@ export default function Footer(){
                       Navegando
                     </FooterButtonLight>
                 </a>
+								
                 <FooterButton onClick={()=>{navigate('/')}}>
                   Logout
                 </FooterButton>

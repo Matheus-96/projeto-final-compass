@@ -6,8 +6,8 @@ import LoginForm from './CadastroWrapper/CadastroForm'
 
 
 const Container = styled.main`
-  min-height: 100vh;
   display: flex;
+  min-height: 100vh;
 
 `
 

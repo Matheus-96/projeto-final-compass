@@ -14,6 +14,10 @@ const Container = styled.div`
     min-height: 100vh;
     display:flex;
     flex-direction:column;
+		
+		@media screen and (max-width:768px){
+			background: none;
+		}
 `
 
 const WhiteScreen = styled.div`

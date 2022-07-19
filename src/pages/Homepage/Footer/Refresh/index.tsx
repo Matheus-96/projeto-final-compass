@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { UsuarioContext } from 'common/context/Usuario'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -44,10 +45,10 @@ const Timer = styled.div`
 `
 
 export default function Refresh(){
-
-    const [timer, setTimer] = useState(60)
-    if(timer <= 0) window.location.reload()
-    setTimeout(()=>{setTimer(timer - 1)}, 1000)
+    const {getTimer} = useContext(UsuarioContext)
+    const [localTimer, setLocalTimer] = useState(getTimer())
+    if(localTimer <= 0) window.location.reload()
+    setTimeout(()=>{setLocalTimer(localTimer - 1)}, 1000)
 
     return(
         <RefreshContainer>
@@ -57,7 +58,7 @@ export default function Refresh(){
             </h3>
             <Timer>
                 <h2>
-                    {timer}
+                    {localTimer}
                 </h2>
                 <span>
                   seconds

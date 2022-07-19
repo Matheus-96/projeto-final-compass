@@ -5,19 +5,21 @@ import Header from './LoginWrapper/Header'
 import LoginForm from './LoginWrapper/LoginForm'
 
 
-const Container = styled.main`
-  min-height: 100vh;
+const Container = styled.div`
   display: flex;
+  min-height: 100vh;
+	
 
 `
 
 const LoginContainer = styled.div`
 width:45%;
+min-height: 100vh;
+
 display: flex;
 flex-direction: column;
 justify-content: space-evenly;
 align-items: center;
-min-height: 100vh;
 @media screen and (max-width: 1440px){
 		width: 65%;
 }
