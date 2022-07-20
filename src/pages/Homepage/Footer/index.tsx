@@ -7,7 +7,6 @@ import Refresh from './Refresh'
 const FooterContainer = styled.div`
 display: flex;
 background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
-padding-bottom: 2rem;
 @media screen and (max-width:768px){
   flex-direction:column;
 }
