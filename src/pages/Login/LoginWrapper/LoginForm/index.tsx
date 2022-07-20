@@ -3,12 +3,14 @@ import { UsuarioContext } from 'common/context/Usuario';
 import Button from 'Components/Button';
 import { InputField, InputGroup } from 'Components/Input';
 import Subtitle from 'Components/Subtitle';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import ErrorStatus from './ErrorStatus';
 import {ReactComponent as IconPassword} from 'assets/icon-password.svg'
 import {ReactComponent as IconUser} from 'assets/icon-user.svg'
+import validacoes from './validacoes'
+
 const Form = styled.form`
 width: 100%;
 padding:5rem 0 1rem;
@@ -17,7 +19,7 @@ padding:5rem 0 1rem;
   text-align:end;
   padding:0 1rem;
   margin-top:2rem;
-	width:100%;
+  width:100%;
   a{
     color:orange;
     cursor:pointer;
@@ -36,7 +38,12 @@ export default function LoginForm(){
     const navigate = useNavigate()
 
     function validateForm(){
-        if(validateEmail() && validatePassword()){
+        if(validateEmail()
+            && validacoes.campoLetraMaiuscula(password)
+            && validacoes.campoLetraMinuscula(password)
+            && validacoes.campoNumero(password)
+            && validacoes.campoTamanhoMinimo(password, 6)    
+        ){
             login()
             setError(false)
             //navigate('home')
@@ -45,7 +52,9 @@ export default function LoginForm(){
         setError(true)
         
     }
-            
+    useEffect(()=> {
+        setError(false)
+    },[nome, password])   
     async function login(){
         try{
             const request = await fetch('http://127.0.0.1:8000/usuario/login',
