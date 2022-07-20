@@ -14,12 +14,17 @@ const LogoContainer = styled.div`
 	justify-content:center;
 	margin: 0 0 4rem;
 	img {
-		min-width:240px;
-
+		min-width:190px;
+		
 	}
 }
+
 @media screen and (min-width:769px){
 	display:none;
+}
+
+@media screen and (max-width:767px){
+	margin: 0 0 3rem;
 }
 
 `

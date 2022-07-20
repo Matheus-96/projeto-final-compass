@@ -45,9 +45,10 @@ const Timer = styled.div`
 `
 
 export default function Refresh(){
+    const navigate = useNavigate()
     const {getTimer} = useContext(UsuarioContext)
     const [localTimer, setLocalTimer] = useState(getTimer())
-    if(localTimer <= 0) window.location.reload()
+    if(localTimer <= 0) navigate('/')
     setTimeout(()=>{setLocalTimer(localTimer - 1)}, 1000)
 
     return(

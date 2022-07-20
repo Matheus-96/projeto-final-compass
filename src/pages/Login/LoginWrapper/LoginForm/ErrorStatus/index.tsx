@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.p<Props>`
 font-style: normal;
 font-weight: 700;
-font-size: 16px;
+font-size: 1.3rem;
 line-height: 20px;
 text-align: center;
 width:100%;

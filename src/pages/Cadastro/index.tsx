@@ -6,12 +6,17 @@ import LoginForm from './CadastroWrapper/CadastroForm'
 
 
 const Container = styled.main`
-  display: flex;
-  min-height: 100vh;
+min-height: 100vh;
+
+display:flex;
+@media screen and (max-width: 768px){
+	display:block;
+}
 
 `
 
 const LoginContainer = styled.div`
+
 width:45%;
 display: flex;
 flex-direction: column;
@@ -20,6 +25,7 @@ align-items: center;
 min-height: 100vh;
 @media screen and (max-width: 1440px){
 		width: 65%;
+
 }
 
 @media screen and (max-width: 768px){

@@ -16,7 +16,8 @@ padding:5rem 0 1rem;
 .cadastro {
   text-align:end;
   padding:0 1rem;
-      width:100%;
+  margin-top:2rem;
+	width:100%;
   a{
     color:orange;
     cursor:pointer;
@@ -112,7 +113,6 @@ export default function LoginForm(){
                     ['outside']: password.length == 0
                 })}/>
             </InputGroup>
-            <div className='cadastro'>Não possui cadastro? <a onClick={()=> navigate('/cadastro')}>Cadastre-se agora</a></div>
             <ErrorStatus className={classNames({
                 ['error']: error
             })}>
@@ -122,6 +122,8 @@ export default function LoginForm(){
             <Button type='submit' onClick={()=> validateForm()}>
                 Continuar
             </Button>
+            <div className='cadastro'>Não possui cadastro? <a onClick={()=> navigate('/cadastro')}>Cadastre-se agora</a></div>
+
         </Form>
     )
 }

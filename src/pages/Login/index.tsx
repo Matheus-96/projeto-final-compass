@@ -6,10 +6,11 @@ import LoginForm from './LoginWrapper/LoginForm'
 
 
 const Container = styled.div`
-  display: flex;
   min-height: 100vh;
-	
-
+	display:flex;
+	@media screen and (max-width: 768px){
+		display:block;
+	}
 `
 
 const LoginContainer = styled.div`

@@ -7,7 +7,8 @@ const DEFAULT_VALUE = {
     password: '',
     setNome: () => {},
     setPassword: () => {},
-    getTimer: ()=> 0
+    getTimer: ()=> 0,
+    logout: ()=> {}
 
 }
 export const UsuarioContext = createContext<UsuarioContext>(DEFAULT_VALUE)
@@ -32,8 +33,12 @@ export const UsuarioProvider = ({children}: Props) => {
         return 0
     }
 
+    function logout() {
+        localStorage.removeItem('token')   
+    }
+
     return (
-        <UsuarioContext.Provider value={{nome, setNome, password, setPassword, getTimer}} >
+        <UsuarioContext.Provider value={{nome, setNome, password, setPassword, getTimer, logout}} >
             {children}
         </UsuarioContext.Provider>
     )
@@ -49,6 +54,7 @@ interface UsuarioContext {
   password: string,
   setPassword: React.Dispatch<React.SetStateAction<string>>,
   getTimer: ()=>number
+  logout: ()=> void
 }
 
 interface Ijwt {

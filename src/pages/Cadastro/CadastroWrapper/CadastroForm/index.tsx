@@ -22,9 +22,9 @@ padding:5rem 0 1rem;
   text-align:end;
   padding:0 1rem;
   margin-top:2rem;
-      width:100%;
+	width:100%;
   a{
-		color:orange;
+    color:orange;
     cursor:pointer;
     &:hover {
       text-decoration:underline;
@@ -168,7 +168,6 @@ export default function LoginForm(){
                 <span className={`requirement ${validacoes.campoLetraMinuscula(password) ? 'ok' : ''}`}>1 letra minúscula</span>
                 <span className={`requirement ${validacoes.campoNumero(password) ? 'ok' : ''}`}>1 número</span>
             </Requirements>
-            <div className='login'>Já possui cadastro? <a onClick={()=> navigate('/')}>Faça login agora</a></div>
             <ErrorStatus className={classNames({
                 ['error']: error
             })}>
@@ -177,6 +176,8 @@ export default function LoginForm(){
             <Button type='submit' onClick={()=> validateForm()}>
                 Cadastrar
             </Button>
+            <div className='login'>Já possui cadastro? <a onClick={()=> navigate('/')}>Faça login agora</a></div>
+
         </Form>
     )
 }

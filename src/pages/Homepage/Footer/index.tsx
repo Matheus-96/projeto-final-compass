@@ -1,3 +1,5 @@
+import { UsuarioContext } from 'common/context/Usuario'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Refresh from './Refresh'
@@ -7,7 +9,7 @@ display: flex;
 background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
 padding-bottom: 2rem;
 @media screen and (max-width:768px){
-	flex-direction:column;
+  flex-direction:column;
 }
 `
 
@@ -17,22 +19,21 @@ const Paragraph = styled.p`
   font-size: 12px;
   line-height: 15px;
   text-align: right;
-
   /* Primária */
 
   color: #FFFFFF;
 
-	.desktop-only {
-		display: block;
-	}
+  .desktop-only {
+    display: block;
+  }
 
-	@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     text-align:center;
-		padding: 2rem 0;
-		.desktop-only {
-			display: none;
-		}
-	}
+    padding: 2rem 1rem;
+    .desktop-only {
+      display: none;
+    }
+  }
 
 
 `
@@ -42,9 +43,9 @@ const Divider = styled.div`
   width: 2px;
   height:80px;
   background-color: #FFFFFF;
-	@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     display:none;
-	}
+  }
 `
 const StatusContainer = styled.div`
     padding: 1rem;
@@ -53,12 +54,12 @@ const StatusContainer = styled.div`
     justify-content:space-evenly;
     align-items:center;
   
-		@media screen and (max-width:768px){
-			flex-direction:column;
-		}
-		
+    @media screen and (max-width:768px){
+      flex-direction:column;
+    }
+    
   .paragraphContainer {
-		order:1;
+    order:1;
     display: flex;
     align-items:center;
 
@@ -68,11 +69,11 @@ const StatusContainer = styled.div`
 
 const ButtonContainer = styled.div`
   display:flex;
-	@media screen and (max-width:768px){
-		justify-content:space-evenly;
+  @media screen and (max-width:768px){
+    justify-content:space-evenly;
     align-items:center;
 
-	}
+  }
 `
 
 const FooterButton = styled.button`
@@ -85,7 +86,7 @@ const FooterButton = styled.button`
     color: #FFFFFF;
     width:130px;
     border:none;
-		height:100%;
+    height:100%;
 `
 
 const FooterButtonLight = styled(FooterButton)`
@@ -98,7 +99,7 @@ const FooterButtonLight = styled(FooterButton)`
 
 export default function Footer(){
     const navigate = useNavigate()
-
+    const {logout} = useContext(UsuarioContext)
 
     return(
         <FooterContainer>
@@ -119,8 +120,8 @@ export default function Footer(){
                       Navegando
                     </FooterButtonLight>
                 </a>
-								
-                <FooterButton onClick={()=>{navigate('/')}}>
+                
+                <FooterButton onClick={()=>{logout(); navigate('/')}}>
                   Logout
                 </FooterButton>
             </ButtonContainer>
