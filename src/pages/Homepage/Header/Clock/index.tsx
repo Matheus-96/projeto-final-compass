@@ -17,8 +17,15 @@ font-size: 9rem;
 line-height: 8rem;
 text-align: center;
 
-@media screen and (max-width:768px){
-	font-size:6rem;
+@media screen and (max-width:768px) and (min-width: 500px){
+	font-size:8rem;
+}
+
+@media screen and (max-width:499px){
+	font-size:5rem;
+	line-height: 4rem;
+
+
 }
 
 /* Secundária */
@@ -29,10 +36,10 @@ color: #222222;
 const DateContainer = styled.div`
 font-style: normal;
 font-weight: 400;
-font-size: 0.875rem;
+font-size: 1rem;
 line-height: 18px;
-@media screen and (max-width:768px){
-	font-size:1.25rem;
+@media screen and (max-width:768px) and (min-width: 500px){
+	font-size:1.75rem;
 }
 
 `

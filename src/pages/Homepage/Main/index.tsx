@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import backgroundLogo from 'assets/homepage_bg.png'
 
 const MainContainer = styled.div`
   display: flex;
@@ -9,6 +10,16 @@ const MainContainer = styled.div`
   flex-grow:1;
 	padding: 1rem 0;
   padding-right:8.375rem;
+
+	background-image: url(${backgroundLogo});
+		background-position-x: left;
+		background-position-y: calc(100% + 4rem);
+		background-size: calc(1rem*30);
+		background-repeat: no-repeat;
+		@media screen and (max-width:768px){
+			background: none;
+		}
+
 	.mobile-only{
 		display: none;
 	}
@@ -32,7 +43,7 @@ const MainContainer = styled.div`
 
     color: #C12D18;
 
-		@media screen and (max-width:768px){
+		@media screen and (max-width:767px){
 			font-size: 3rem;
 		}
   }
@@ -48,7 +59,7 @@ const MainContainer = styled.div`
 
     color: #C12D18;
 		
-		@media screen and (max-width:768px){
+		@media screen and (max-width:767px){
 			font-size: 3rem;
 		}
   }

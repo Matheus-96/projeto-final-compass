@@ -59,10 +59,12 @@ const StatusContainer = styled.div`
     }
     
   .paragraphContainer {
-    order:1;
+    
     display: flex;
     align-items:center;
-
+		@media screen and (max-width: 768px) {
+			order:1;
+		}
   }
 
 `

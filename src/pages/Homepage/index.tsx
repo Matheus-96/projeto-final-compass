@@ -1,23 +1,16 @@
 import styled from 'styled-components'
 import Header from './Header'
-import backgroundLogo from 'assets/homepage_bg.png'
 import Main from './Main'
 import Footer from './Footer'
 import { useLayoutEffect, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
-    background-image: url(${backgroundLogo});
-    background-position: left bottom;
-    background-size: calc(1rem*30);
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    display:flex;
-    flex-direction:column;
+min-height: 100vh;
+display:flex;
+flex-direction:column;
+
 		
-		@media screen and (max-width:768px){
-			background: none;
-		}
 `
 
 const WhiteScreen = styled.div`
