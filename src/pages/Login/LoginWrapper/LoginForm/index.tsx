@@ -19,6 +19,7 @@ padding:5rem 0 1rem;
   text-align:end;
   padding:0 1rem;
   margin-top:2rem;
+  font-size:1.2rem;
   width:100%;
   a{
     color:orange;
@@ -26,6 +27,9 @@ padding:5rem 0 1rem;
     &:hover {
       text-decoration:underline;
     }
+  }
+  @media screen and (max-width:767px){
+    font-size:1.1rem;
   }
 }
 `
@@ -87,8 +91,9 @@ export default function LoginForm(){
     }
 
     function validatePassword(){
-        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)
+        return /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)
     }
+
 
     return(
         <Form onSubmit={event => {event.preventDefault()}}>
@@ -104,6 +109,7 @@ export default function LoginForm(){
                     })}
                     value={nome}
                     onChange={(event)=>setNome(event.target.value)}
+
                 />
                 <IconUser className={classNames({
                     ['icon']: true,

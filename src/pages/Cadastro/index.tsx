@@ -31,7 +31,7 @@ min-height: 100vh;
 @media screen and (max-width: 768px){
 	background: linear-gradient(180deg, rgba(51, 56, 61, .9) 0%, rgba(28, 29, 32, .95) 100%);
 	width: 85%;
-	padding: 4rem 5rem;
+	padding: 4rem 3rem;
 	min-height: 80%;
 	margin: auto 0;
 	border-radius:10px;

@@ -2,7 +2,7 @@
 import classNames from 'classnames';
 import { UsuarioContext } from 'common/context/Usuario';
 import Button from 'Components/Button';
-import { InputField, InputGroup, InputGroupCadastro } from 'Components/Input';
+import { InputField, InputGroupCadastro } from 'Components/Input';
 import Subtitle from 'Components/Subtitle';
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,6 @@ import {ReactComponent as IconPassword} from 'assets/icon-password.svg'
 import {ReactComponent as IconUser} from 'assets/icon-user.svg'
 
 import validacoes from './validacoes';
-import { previousDay } from 'date-fns';
 
 const Form = styled.form`
 width: 100%;
@@ -22,6 +21,7 @@ padding:5rem 0 1rem;
   text-align:end;
   padding:0 1rem;
   margin-top:2rem;
+  font-size:1.2rem;
   width:100%;
   a{
     color:orange;
@@ -30,10 +30,15 @@ padding:5rem 0 1rem;
       text-decoration:underline;
     }
   }
+
+  @media screen and (max-width:767px){
+    font-size:1.1rem;
+  }
 }
 `
 
 const Requirements = styled.div`
+font-size:1rem;
 display:none;
   &.visible{
     display:block;
@@ -46,7 +51,7 @@ display:none;
     }
     &:before{
       margin-right:5px;
-      color:red;
+      color:grey;
       content:'✖';
     }
   }
@@ -122,9 +127,33 @@ export default function LoginForm(){
     }
 
     function validatePassword(){
-        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
+        return /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)
     }
 
+    function clearRequirements(campo: string){
+        switch(campo){
+        case 'nome':
+            setShowingValidation(previous => {
+                return {
+                    ...previous,
+                    'email': !validateEmail()
+                }
+            })
+            console.log(validateEmail());
+            
+            break;
+        case 'password':
+            setShowingValidation(previous => {
+                return {
+                    ...previous,
+                    [campo]: !validatePassword()
+                }
+            })
+            console.log(validatePassword());
+
+            break;
+        }
+    }
     return(
         <Form onSubmit={event => {event.preventDefault()}}>
             <Subtitle>
@@ -140,6 +169,8 @@ export default function LoginForm(){
                     value={nome}
                     onChange={(event)=>setNome(event.target.value)}
                     onFocus={()=>showValidation('email')}
+                    onBlur={()=>clearRequirements('nome')}
+
                 />
                 <IconUser className={classNames({
                     ['icon']: true,
@@ -159,6 +190,7 @@ export default function LoginForm(){
                     value={password}
                     onChange={(event)=>setPassword(event.target.value)}
                     onFocus={()=>showValidation('password')}
+                    onBlur={()=>clearRequirements('password')}
 
                 />
                 <IconPassword className={classNames({

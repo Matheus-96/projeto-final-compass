@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import background from 'assets/login_bg.png'
+import background from 'assets/login_bg.webp'
 import Logo from 'assets/logo_compasso.png'
 const ImageContainer = styled.div`
   background-image: url(${background});

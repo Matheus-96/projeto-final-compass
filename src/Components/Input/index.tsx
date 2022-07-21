@@ -25,6 +25,9 @@ export const InputGroup = styled.div`
 	  .icon {
 			right:18px;
 			width:18px;
+			&.outside {
+						transform: translateY(-50%)translateX(0);
+			}
 		}
 	}
 	
@@ -52,20 +55,20 @@ export const InputField = styled.input`
 	color: #E0E0E0;
 	line-height:20px;
 	letter-spacing:1px;
-	::placeholder{
-		color: #707070;
-	}
-	&.error{
-		border: 1px solid #E9B425;
-		border-radius: 50px;
-	}
-	@media screen and (max-width: 425px){
-	padding: .5rem 5rem .5rem 1rem;
-	font-size:1.4rem;
+		::placeholder {
+			color: #707070;
+		}
+		&.error{
+			border: 1px solid #E9B425;
+			border-radius: 50px;
+		}
+		@media screen and (max-width: 425px){
+			padding: .5rem 5rem .5rem 1rem;
+			font-size:1.4rem;
+		}
 
-	::placeholder{
-		font-size:1.4rem;
-	}
-	}
+		::placeholder{
+			font-size:1.2rem;
+		}
 
 `
