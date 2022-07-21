@@ -34,7 +34,6 @@ padding:5rem 0 1rem;
 export default function LoginForm(){
     const {nome, setNome, password, setPassword} = useContext(UsuarioContext)
     const [error, setError] = useState(false)
-
     const navigate = useNavigate()
 
     function validateForm(){
@@ -44,17 +43,20 @@ export default function LoginForm(){
             && validacoes.campoNumero(password)
             && validacoes.campoTamanhoMinimo(password, 6)    
         ){
-            login()
             setError(false)
-            //navigate('home')
+            login()
             return
         }
         setError(true)
         
     }
+
+    //Remove a msg de erro quando o usuário digita algo nos inputs
     useEffect(()=> {
-        setError(false)
-    },[nome, password])   
+        if(error)
+            setError(false)
+    },[nome, password])  
+
     async function login(){
         try{
             const request = await fetch('http://127.0.0.1:8000/usuario/login',
@@ -76,6 +78,7 @@ export default function LoginForm(){
             }
         } catch(error){
             console.log(error);  
+            setError(true)
         }
     }
 
@@ -84,7 +87,7 @@ export default function LoginForm(){
     }
 
     function validatePassword(){
-        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
+        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)
     }
 
     return(
