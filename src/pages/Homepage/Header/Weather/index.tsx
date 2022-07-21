@@ -20,10 +20,10 @@ justify-content:center;
     font-size: 1.25rem;
     line-height: 1.25rem;
     text-align: center;
-		@media screen and (max-width:768px) and (min-width: 500px){
-			font-size: 2rem;
-			line-height: 2.5rem;
-		}
+    @media screen and (max-width:768px) and (min-width: 500px){
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
   }
 `
 const TemperatureContainer = styled.div`
@@ -44,9 +44,9 @@ justify-content:center;
   h3{
     font-weight: 700;
     font-size: 3rem;
-		@media screen and (max-width:768px) and (min-width: 500px){
-			font-size: 3.5rem;
-		}
+    @media screen and (max-width:768px) and (min-width: 500px){
+      font-size: 3.5rem;
+    }
   }
 `
 // https://api.hgbrasil.com/weather?format=json-cors&woeid=456473&key=b4613b35 RIO NEGRO
@@ -76,6 +76,7 @@ export default function Weather(){
     useEffect(()=>{
       
         if(navigator.geolocation){
+          
             navigator.geolocation.getCurrentPosition(async (position) => {
                 await GrantedGeolocation(position)
             },async ()=> {

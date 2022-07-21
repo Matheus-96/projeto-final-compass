@@ -4,7 +4,7 @@ import { UsuarioContext } from 'common/context/Usuario';
 import Button from 'Components/Button';
 import { InputField, InputGroup, InputGroupCadastro } from 'Components/Input';
 import Subtitle from 'Components/Subtitle';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import ErrorStatus from './ErrorStatus';
@@ -22,7 +22,7 @@ padding:5rem 0 1rem;
   text-align:end;
   padding:0 1rem;
   margin-top:2rem;
-	width:100%;
+  width:100%;
   a{
     color:orange;
     cursor:pointer;
@@ -62,6 +62,10 @@ export default function LoginForm(){
     })
 
     const navigate = useNavigate()
+
+    useEffect(()=> {
+        setError(false)
+    }, [nome, password])
 
     function validateForm(){
         if(validateEmail()

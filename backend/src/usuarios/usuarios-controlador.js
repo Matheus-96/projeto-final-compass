@@ -9,7 +9,7 @@ function criaTokenJWT(usuario) {
         id: usuario.id
     };
 
-    const token = jwt.sign(payload, process.env.CHAVE_JWT, { expiresIn: '10m' });
+    const token = jwt.sign(payload, process.env.CHAVE_JWT, { expiresIn: '1m' });
     return token;
 }
 
@@ -22,7 +22,6 @@ module.exports = {
             });
 
             await usuario.adicionaSenha(senha);
-
             await usuario.adiciona();
 
             res.status(201).json();

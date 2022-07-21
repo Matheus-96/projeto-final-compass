@@ -6,6 +6,12 @@ export default styled.p`
 	font-weight: 400;
 	line-height: 20px;
 	@media screen and (max-width:768px){
-		font-size:1.125rem;
+		font-size:1.5rem;
+	}
+
+	@media screen and (max-width:767px) {
+		.desktop-only {
+			display:none;
+		}
 	}
 `

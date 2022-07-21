@@ -3,12 +3,14 @@ import { UsuarioContext } from 'common/context/Usuario';
 import Button from 'Components/Button';
 import { InputField, InputGroup } from 'Components/Input';
 import Subtitle from 'Components/Subtitle';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import ErrorStatus from './ErrorStatus';
 import {ReactComponent as IconPassword} from 'assets/icon-password.svg'
 import {ReactComponent as IconUser} from 'assets/icon-user.svg'
+import validacoes from './validacoes'
+
 const Form = styled.form`
 width: 100%;
 padding:5rem 0 1rem;
@@ -17,7 +19,7 @@ padding:5rem 0 1rem;
   text-align:end;
   padding:0 1rem;
   margin-top:2rem;
-	width:100%;
+  width:100%;
   a{
     color:orange;
     cursor:pointer;
@@ -32,20 +34,29 @@ padding:5rem 0 1rem;
 export default function LoginForm(){
     const {nome, setNome, password, setPassword} = useContext(UsuarioContext)
     const [error, setError] = useState(false)
-
     const navigate = useNavigate()
 
     function validateForm(){
-        if(validateEmail() && validatePassword()){
-            login()
+        if(validateEmail()
+            && validacoes.campoLetraMaiuscula(password)
+            && validacoes.campoLetraMinuscula(password)
+            && validacoes.campoNumero(password)
+            && validacoes.campoTamanhoMinimo(password, 6)    
+        ){
             setError(false)
-            //navigate('home')
+            login()
             return
         }
         setError(true)
         
     }
-            
+
+    //Remove a msg de erro quando o usuário digita algo nos inputs
+    useEffect(()=> {
+        if(error)
+            setError(false)
+    },[nome, password])  
+
     async function login(){
         try{
             const request = await fetch('http://127.0.0.1:8000/usuario/login',
@@ -67,6 +78,7 @@ export default function LoginForm(){
             }
         } catch(error){
             console.log(error);  
+            setError(true)
         }
     }
 
@@ -75,7 +87,7 @@ export default function LoginForm(){
     }
 
     function validatePassword(){
-        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
+        return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)
     }
 
     return(

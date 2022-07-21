@@ -39,7 +39,7 @@ export default function Header(){
                 Olá,
             </Title>
             <Paragraph>
-                Para continuar navegando de forma<br />
+                Para continuar navegando de forma <br className='desktop-only'/>
                 segura, efetue o cadastro na rede.
             </Paragraph>
         </HeaderContainer>

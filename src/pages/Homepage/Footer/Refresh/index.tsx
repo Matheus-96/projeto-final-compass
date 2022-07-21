@@ -38,7 +38,7 @@ const Timer = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    text-align: right;
+    text-align: center;
 
     color: #FFFFFF;
   }
@@ -48,8 +48,8 @@ export default function Refresh(){
     const navigate = useNavigate()
     const {getTimer} = useContext(UsuarioContext)
     const [localTimer, setLocalTimer] = useState(getTimer())
-    if(localTimer <= 0) navigate('/')
-    setTimeout(()=>{setLocalTimer(localTimer - 1)}, 1000)
+    if(localTimer <= 0)navigate('/')
+    setTimeout(()=>{setLocalTimer(localTimer -1)}, 900)
 
     return(
         <RefreshContainer>
@@ -59,7 +59,7 @@ export default function Refresh(){
             </h3>
             <Timer>
                 <h2>
-                    {localTimer}
+                    {getTimer()}
                 </h2>
                 <span>
                   seconds

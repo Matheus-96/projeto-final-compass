@@ -21,8 +21,11 @@ export const InputGroup = styled.div`
 	}
 
 	@media screen and (max-width: 768px){
-		width: 90%;
-	
+		width: 100%;
+	  .icon {
+			right:18px;
+			width:18px;
+		}
 	}
 	
 @media screen and (max-width: 375px){
@@ -56,9 +59,13 @@ export const InputField = styled.input`
 		border: 1px solid #E9B425;
 		border-radius: 50px;
 	}
-	@media screen and (max-width: 768px){
-	padding: 1.25rem 5rem 1.25rem 1.25rem;
+	@media screen and (max-width: 425px){
+	padding: .5rem 5rem .5rem 1rem;
+	font-size:1.4rem;
 
+	::placeholder{
+		font-size:1.4rem;
+	}
 	}
 
 `
