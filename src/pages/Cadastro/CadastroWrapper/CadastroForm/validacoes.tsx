@@ -1,6 +1,6 @@
 export default {
     campoTamanhoMinimo: (valor: string, minimo: number) => {
-        return valor.length > minimo
+        return valor.length >= minimo
     },
 
     campoLetraMaiuscula: (valor: string) => {

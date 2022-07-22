@@ -162,7 +162,7 @@ export default function LoginForm(){
             <InputGroupCadastro>
                 <InputField
                     placeholder='Usuário'
-                    type='text'
+                    type='email'
                     className={classNames({
                         ['error']: error
                     })}
