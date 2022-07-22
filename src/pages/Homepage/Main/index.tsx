@@ -93,7 +93,7 @@ export default function Main(){
             <span>construindo experiências digitais</span>
             {/*eslint-disable-next-line quotes*/}
             <h1>{`that enable our client's growth`}</h1>
-            <span>que permitam o crescimento dos nossos<br className='mobile-only' /> clientes</span>
+            <span>que permitam o crescimento dos nossos <br className='mobile-only' /> clientes</span>
         </MainContainer>
     )
 }

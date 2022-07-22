@@ -10,7 +10,7 @@ min-height: 100vh;
 display:flex;
 flex-direction:column;
 
-		
+    
 `
 
 const WhiteScreen = styled.div`
@@ -41,6 +41,7 @@ export default function Homepage(){
 
         validaToken().then(status => {
             if(status !== 200){
+                localStorage.removeItem('token')
                 navigate('/')
             } else {
                 setAutenticado(true)

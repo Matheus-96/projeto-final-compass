@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const InputGroup = styled.div`
 // display:flex;
-	margin: 1rem 0 .5rem;
+	margin: 2rem 0 .5rem;
 	align-items: center;
   position:relative;
 
@@ -33,7 +33,7 @@ export const InputGroup = styled.div`
 	
 @media screen and (max-width: 375px){
   .icon {
-		right:18px;
+		right:14px;
 		width:16px;
 	}
 }
@@ -63,7 +63,10 @@ export const InputField = styled.input`
 			border-radius: 50px;
 		}
 		@media screen and (max-width: 425px){
-			padding: .5rem 5rem .5rem 1rem;
+			padding: 1rem 5rem 1rem 1rem;
+			font-size:1.2rem;
+		}
+		@media screen and (min-width: 426px) and (max-width: 768px){
 			font-size:1.4rem;
 		}
 

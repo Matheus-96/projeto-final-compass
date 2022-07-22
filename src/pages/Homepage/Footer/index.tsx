@@ -107,7 +107,7 @@ export default function Footer(){
             <StatusContainer>
                 <div className='paragraphContainer'>
                     <Paragraph>
-                      Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a<br className='desktop-only' />
+                      Essa janela do navegador é usada para manter sua sessão de autenticação ativa. Deixe-a <br className='desktop-only' />
                       aberta em segundo plano e abra uma nova janela para continuar a navegar.
                     </Paragraph>
                     <Divider /> 

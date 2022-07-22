@@ -13,7 +13,6 @@ import validacoes from './validacoes'
 
 const Form = styled.form`
 width: 100%;
-padding:5rem 0 1rem;
 
 .cadastro {
   text-align:end;

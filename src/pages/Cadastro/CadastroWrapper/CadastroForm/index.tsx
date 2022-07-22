@@ -15,7 +15,7 @@ import validacoes from './validacoes';
 
 const Form = styled.form`
 width: 100%;
-padding:5rem 0 1rem;
+// padding:5rem 0 1rem;
 
 .login {
   text-align:end;
@@ -84,8 +84,8 @@ export default function LoginForm(){
             return
         }
         setShowingValidation({email: true,password: true})
-        setErrorMessage('Erro de validação')
-        setError(true)
+        // setErrorMessage('Erro de validação')
+        // setError(true)
         
     }
 
@@ -161,7 +161,7 @@ export default function LoginForm(){
             </Subtitle>
             <InputGroupCadastro>
                 <InputField
-                    placeholder='teste@exemplo.com'
+                    placeholder='Usuário'
                     type='text'
                     className={classNames({
                         ['error']: error
