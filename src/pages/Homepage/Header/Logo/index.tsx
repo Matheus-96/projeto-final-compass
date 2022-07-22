@@ -3,7 +3,9 @@ import styled from 'styled-components'
 
 const LogoContainer = styled.div`
 width: 15%;
-
+img {
+	width:100%;
+}
 @media screen and (max-width:768px){
 	padding: 2rem 0;
 	width:100%;
@@ -11,6 +13,7 @@ width: 15%;
 	justify-content:center;
 	img {
 		width:75%;
+		max-width: 475px;
 	}
 }
 `
