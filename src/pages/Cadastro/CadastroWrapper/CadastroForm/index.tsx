@@ -5,13 +5,14 @@ import Button from 'Components/Button';
 import { InputField, InputGroupCadastro } from 'Components/Input';
 import Subtitle from 'Components/Subtitle';
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ErrorStatus from './ErrorStatus';
 import {ReactComponent as IconPassword} from 'assets/icon-password.svg'
 import {ReactComponent as IconUser} from 'assets/icon-user.svg'
-
+import {ReactComponent as IconConfirm} from 'assets/confirm.svg'
 import validacoes from './validacoes';
+import Modal from 'Components/Modal';
 
 const Form = styled.form`
 width: 100%;
@@ -57,6 +58,10 @@ display:none;
   }
 `
 
+const SmButton = styled(Button)`
+padding-top: 1rem;
+`
+
 export default function LoginForm(){
     const {nome, setNome, password, setPassword} = useContext(UsuarioContext)
     const [errorMessage, setErrorMessage] = useState('Erro ao processar requisição, tente novamente mais tarde.')
@@ -65,6 +70,7 @@ export default function LoginForm(){
         email: false,
         password: false
     })
+    const [registered, setRegistered] = useState(false)
 
     const navigate = useNavigate()
 
@@ -101,7 +107,7 @@ export default function LoginForm(){
         switch(request.status){
         case 201:
             setError(false)
-            navigate('/')
+            setRegistered(true)
             return
         case 422:
             setErrorMessage("Email de usuário indisponível")
@@ -156,6 +162,19 @@ export default function LoginForm(){
     }
     return(
         <Form onSubmit={event => {event.preventDefault()}}>
+            <Modal open={registered}>
+                <div className='image-container'>
+                    <IconConfirm className='modal-image' />
+                </div>
+                
+                <p className='modal-text'>
+                  Cadastro efetuado com sucesso!
+                </p>
+
+                <SmButton onClick={()=> navigate('/')}>
+                  Voltar ao menu
+                </SmButton>
+            </Modal>				
             <Subtitle>
                 Cadastro
             </Subtitle>
@@ -212,8 +231,9 @@ export default function LoginForm(){
             <Button type='submit' onClick={()=> validateForm()}>
                 Cadastrar
             </Button>
-            <div className='login'>Já possui cadastro? <a onClick={()=> navigate('/')}>Faça login agora</a></div>
+            <div className='login'>Já possui cadastro? <a onClick={()=>navigate('/')}>Faça login agora</a></div>
 
         </Form>
+
     )
 }

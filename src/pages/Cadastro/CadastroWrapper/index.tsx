@@ -4,6 +4,7 @@ import background from 'assets/login_bg.png'
 
 export default styled.div`
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	align-items: center;
 	flex-grow: 1;
